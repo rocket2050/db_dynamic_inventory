@@ -1,0 +1,7 @@
+FROM opstree/ansible
+
+COPY cserver.pub /root/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/authorized_keys
+RUN apt-get -y install openssh-server
+
+CMD service ssh start && /bin/bash
