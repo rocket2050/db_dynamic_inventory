@@ -53,6 +53,7 @@ class DBInventory(object):
         self._addGroupEntries("web")
         self._addGroupEntries("db")
         self._addGroupEntries("app")
+        self._addGroupEntries("other")
 
     # Empty inventory for testing.
     def build_empty_inventory(self):
