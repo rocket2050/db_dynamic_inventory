@@ -41,10 +41,12 @@ class DBInventory(object):
         for row in cur.fetchall() :
           hostList.append(row[0])
 
-        hostListMapping={}
-        hostListMapping["hosts"]=hostList
+        groupMapping={}
+        groupMapping["hosts"]=hostList
 
-        self.inventory[groupIdentifier]=hostListMapping
+        groupMapping["vars"]={}
+        groupMapping["vars"]["redis_monitoring"]=1
+        self.inventory[groupIdentifier]=groupMapping
 
     # Example inventory for testing.
     def build_inventory(self):

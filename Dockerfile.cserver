@@ -7,4 +7,4 @@ RUN apt-get update && apt-get -y install python-mysqldb
 RUN chmod 600 /root/.ssh/id_rsa
 
 RUN git clone https://github.com/opstree-ansible/osm_zabbix.git -b Release-1.1 /etc/ansible/roles/osm_zabbix
-RUN git clone https://github.com/opstree-ansible/zabbix-agent.git /etc/ansible/roles/zabbix_agent
+RUN git clone https://github.com/opstree-ansible/zabbix-agent.git /etc/ansible/roles/zabbix-agent

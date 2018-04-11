@@ -7,6 +7,9 @@ build-cserver:
 build-tserver:
 	docker build -t opstree/ansible:tserver -f Dockerfile.tserver .
 
+build-pythonbox:
+	docker build -t opstree/python -f Dockerfile.python .
+
 build-all:
 	make build
 	make build-cserver
@@ -51,6 +54,8 @@ run-control-server:
 	docker rm -f cserver || true
 	docker run -h cserver -v ${PWD}/data/inventory.py:/etc/ansible/inventory.py --name cserver --link zabbix:zabbix --link inventory-db:inventory-db --link webaza:webaza --link webazb:webazb --link appaza:appaza --link appazb:appazb --link dbaza:dbaza --link dbazb:dbazb -itd opstree/ansible:cserver /bin/bash
 
+run-pythonbox:
+	docker run -it opstree/python
 run-all:
 	make run-zabbix-server
 	make run-web-az-a
